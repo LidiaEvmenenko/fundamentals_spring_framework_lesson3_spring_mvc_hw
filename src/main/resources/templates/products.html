@@ -23,6 +23,8 @@
             <td th:text="${p.title}"></td>
             <td th:text="${p.cost}"></td>
             <td>
+                <a th:href="@{'/inc/'+${p.id}}" class="btn btn-primary">+</a>
+                <a th:href="@{'/dec/'+${p.id}}" class="btn btn-primary">-</a>
                 <a th:href="@{'/show/'+${p.id}}" class="btn btn-primary">Подробнее</a>
             </td>
         </tr>

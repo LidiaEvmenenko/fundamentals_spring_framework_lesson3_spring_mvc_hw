@@ -37,4 +37,12 @@ public class ProductRepository {
         product.setId(newId);
         products.add(product);
     }
+    public void incCostByOne(Long id){
+        Product product = findProductId(id);
+        product.setCost(product.getCost() + 1);
+    }
+    public void decCostByOne(Long id){
+        Product product = findProductId(id);
+        product.setCost(product.getCost() - 1);
+    }
 }
