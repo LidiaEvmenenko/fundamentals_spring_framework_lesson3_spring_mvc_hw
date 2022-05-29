@@ -24,4 +24,10 @@ public class ProductService {
     public void saveNewProduct(Product product){
         productRepository.saveNewProduct(product);
     }
+    public void incCostOfProductByOne(Long id){
+        productRepository.incCostByOne(id);
+    }
+    public void decCostOfProductByOne(Long id){
+        productRepository.decCostByOne(id);
+    }
 }

@@ -38,4 +38,14 @@ public class ProductController {
         model.addAttribute("product", productService.findProductId(id));
         return "product";
     }
+    @GetMapping("/inc/{id}")
+    public String incCostOfProductByOne(@PathVariable Long id){
+        productService.incCostOfProductByOne(id);
+        return "redirect:/show_all";
+    }
+    @GetMapping("/dec/{id}")
+    public String decCostOfProductByOne(@PathVariable Long id){
+        productService.decCostOfProductByOne(id);
+        return "redirect:/show_all";
+    }
 }
