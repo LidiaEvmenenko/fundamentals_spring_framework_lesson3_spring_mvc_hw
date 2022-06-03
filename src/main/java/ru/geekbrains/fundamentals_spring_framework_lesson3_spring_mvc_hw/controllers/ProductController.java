@@ -18,7 +18,7 @@ public class ProductController {
     // POST http://localhost:8189/app/create
     @PostMapping("/create")
     public String saveNewProduct(@RequestParam String title, @RequestParam int cost){
-        productService.saveNewProduct(new Product(0L, title, cost));
+        productService.saveNewProduct(title, cost);
         return "redirect:/show_all";
     }
     // Get http://localhost:8189/app/create
@@ -47,5 +47,21 @@ public class ProductController {
     public String decCostOfProductByOne(@PathVariable Long id){
         productService.decCostOfProductByOne(id);
         return "redirect:/show_all";
+    }
+    @GetMapping("/del/{id}")
+    public String deleteProduct(@PathVariable Long id){
+        productService.deleteProduct(id);
+        return "redirect:/show_all";
+    }
+    @PostMapping("/update/{id}")
+    public String updateCost(@PathVariable Long id, @RequestParam int cost){
+        productService.updateCost(id, cost);
+        return "redirect:/show_all";
+    }
+    // Get http://localhost:8189/app/update/{id}
+    @GetMapping("/update/{id}")
+    public String updateCostForm(Model model, @PathVariable Long id){
+        model.addAttribute("product", productService.findProductId(id));
+        return "update_cost";
     }
 }

@@ -9,9 +9,23 @@
 <body>
 <div class="container">
   <h2>Информация о продукте</h2>
-  <h4 th:text="${'ID: ' + product.id}"></h4>
-  <h4 th:text="${'Название продукта: ' + product.title}"></h4>
-  <h4 th:text="${'Стоимость: ' + product.cost}"></h4>
+    <table class="table">
+        <thead class="table-light">
+        <tr>
+            <td>ID</td>
+            <td>Название продукта</td>
+            <td>Стоимость</td>
+        </tr>
+        </thead>
+        <tbody>
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.title}"></td>
+        <td th:text="${product.cost}"></td>
+        </tbody>
+    </table>
+<!--  <h4 th:text="${'ID: ' + product.id}"></h4>-->
+<!--  <h4 th:text="${'Название продукта: ' + product.title}"></h4>-->
+<!--  <h4 th:text="${'Стоимость: ' + product.cost}"></h4>-->
   <a th:href="@{'/show_all'}" type="button" class="btn btn-primary">Список всех продуктов</a>
 </div>
 </body>

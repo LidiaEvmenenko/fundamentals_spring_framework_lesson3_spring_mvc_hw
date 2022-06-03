@@ -1,12 +1,27 @@
 package ru.geekbrains.fundamentals_spring_framework_lesson3_spring_mvc_hw.model;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "products")
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "title")
     private String title;
+    @Column(name = "cost")
     private int cost;
+
+    public Product() {
+    }
 
     public Product(Long id, String title, int cost) {
         this.id = id;
+        this.title = title;
+        this.cost = cost;
+    }
+    public Product(String title, int cost) {
         this.title = title;
         this.cost = cost;
     }
